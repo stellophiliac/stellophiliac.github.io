@@ -1,144 +1,122 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 
 :root {
-    --page-bg:#1e2030;
-    --main-bg:#24273a;
-    --text:#cad3f5;
-    --accent:#c6a0f6;
-    --accent-light:#dabcff;
-    --muted:#a5adcb;
+    --page-bg: #1e2030;
+    --main-bg: #24273a;
+    --text: #cad3f5;
+    --accent: #c6a0f6;
+    --accent-light: #dabcff;
+    --muted: #a5adcb;
 }
 
 * {
-    box-sizing:border-box
+    box-sizing: border-box
 }
 
 body {
-    padding:0;
-    margin:0;
-    height:100vh;
-    background-color:var(--page-bg);
-    color:var(--text);
-    font-family:'Roboto Mono', monospace
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    background-color: var(--page-bg);
+    color: var(--text);
+    font-family: 'Jetbrains Mono', monospace
 }
 
+
 #wrapper {
-    height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center
+    max-width: 600px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header {
+    height: 300px;
+    background-color: var(--accent)
+}
+
+header div {
+    height: 100%;
+    background-image: url(https://images.unsplash.com/photo-1561344640-2453889cde5b?q=80&w=3067&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: grayscale(1);
+    mix-blend-mode: hard-light;
 }
 
 main {
-    width:100%
+    background-color: var(--main-bg);
+    padding: 2.5em
 }
 
-#content {
-    margin:0 auto;
-    max-width:1000px;
-    display:flex;
-    background-color:var(--main-bg);
-    min-height:475px
-}
-
-#left, #right {
-    height:inherit
-}
-
-#left {
-    width:40%;
-    background-color:var(--accent)
-}
-
-#left div {
-    width:100%;
-    height:100%;
-    filter:grayscale(100);
-    mix-blend-mode: multiply;
-    background-image:url(https://images.unsplash.com/photo-1496450681664-3df85efbd29f?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-    background-size:cover;
-    background-position:center
-}
-
-#right {
-    padding:0.5em;
-    width:60%;
-    display:flex;
-    align-items: center;
-}
-
-.container {
-    padding:1.5em;
-}
-
-h1 {
-    font-weight:bold;
-    font-family:'Montserrat', sans-serif;
-    color:var(--accent);
-    margin-top:0;
-    font-size:2.5em;
-    margin-bottom:0.25em
+h1#title {
+    font-weight: bold;
+    color: var(--accent);
+    margin-top: 0;
+    font-size: 2.5em;
+    margin-bottom: 0.25em;
 }
 
 p.small {
-    font-size:0.9em
+    font-size: 0.9em
 }
 
-p {
-    margin-top:0
+p:last-child {
+    margin-bottom:0
 }
+
 
 a {
-    text-decoration:none;
-    color:var(--accent);
-    transition-duration:0.5s;
+    text-decoration: none;
+    color: var(--accent);
+    transition-duration: 0.5s;
 }
 
 a:hover {
-    color:var(--accent-light);
-    text-decoration:underline
+    color: var(--accent-light);
+    text-decoration: underline
 }
 
-#links {
-    margin-top:1.5em
-}
-
-#links > div:nth-child(2) > div span:not(:last-child)::after {
-    content:" ﹒ ";
-    color:var(--muted)
+section {
+    margin-bottom: 2em
 }
 
 .text-accent {
-    color:var(--accent)
+    color: var(--accent)
 }
 
 .text-muted {
-    color:var(--muted)
+    color: var(--muted)
 }
 
-@media only screen and (max-width: 768px) {
-    #content {
-        flex-wrap:wrap
+p#links > span {
+    display: block;
+}
+
+
+@media only screen and (max-width:768px) {
+    body {
+        padding: 0.5em
     }
-    #left, #right {
-        width:100%;
-        display:block
+}
+
+@media only screen and (max-width:480px) {
+    body {
+        font-size:0.9em
+    }
+    h1#title {
+        font-size:2em
     }
 
-    #left {
-        height:300px
-    }
-    
-    #right {
-        font-size:85%
+    p#links > span {
+        display:inline
     }
 
-    #links > div:nth-child(2) > div span::after {
-        display:none
-    }
-
-    #links > div:nth-child(2) > div span:not(last-child) {
-        margin-right:1em
+    p#links > span:not(span:last-child)::after {
+        content:' ﹒ '
     }
 }
